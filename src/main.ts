@@ -1,4 +1,4 @@
-import { bufferToFile, fileToBuffer, print } from "kolmafia";
+import { fileToBuffer, print } from "kolmafia";
 
 export default function main(): void {
   const input = fileToBuffer("input.txt").split(/\n/g);
