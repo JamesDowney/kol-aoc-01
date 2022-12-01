@@ -2,9 +2,16 @@ import { bufferToFile, fileToBuffer, print } from "kolmafia";
 
 export default function main(): void {
   const input = fileToBuffer("input.txt").trim().split(/\n/g);
-  const solution = input;
-  solution.forEach((element) => {
-    print(element);
+  let count = 0;
+  let solutionArray: number[] = [];
+  input.forEach((element) => {
+    if (element !== "") {
+      count += parseInt(element);
+    } else {
+      solutionArray.push(count);
+      count = 0;
+    }
   });
-  bufferToFile(solution.join("\n"), "output.txt");
+  const solution = solutionArray.sort((a, b) => b - a)[0];
+  bufferToFile(solution.toString(), "output.txt");
 }
