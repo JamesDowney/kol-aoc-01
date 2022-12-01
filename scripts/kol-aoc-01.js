@@ -35,10 +35,14 @@ var kolmafia = require("kolmafia"), console = {
 // src/main.ts
 var import_kolmafia = require("kolmafia");
 function main() {
-  var input = (0, import_kolmafia.fileToBuffer)("input.txt").trim().split(/\n/g), solution = input;
-  solution.forEach(function(element) {
-    (0, import_kolmafia.print)(element);
-  }), (0, import_kolmafia.bufferToFile)(solution.join("\n"), "output.txt");
+  var input = (0, import_kolmafia.fileToBuffer)("input.txt").trim().split(/\n/g), count = 0, solutionArray = [];
+  input.forEach(function(element) {
+    element !== "" ? count += parseInt(element) : (solutionArray.push(count), count = 0);
+  });
+  var solution = solutionArray.sort(function(a, b) {
+    return b - a;
+  })[0];
+  (0, import_kolmafia.bufferToFile)(solution.toString(), "output.txt");
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {});
