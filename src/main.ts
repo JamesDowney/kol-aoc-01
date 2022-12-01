@@ -5,13 +5,14 @@ export default function main(): void {
   let count = 0;
   let solutionArray: number[] = [];
   input.forEach((element) => {
-    if (element !== "" && element !== null && element !== undefined) {
+    if (element.charCodeAt(0) != 13) {
       count += parseInt(element);
     } else {
       solutionArray.push(count);
       count = 0;
     }
   });
-  const solution = solutionArray.sort((a, b) => b - a)[0] ?? 0;
-  bufferToFile(solution.toString(), "output.txt");
+  solutionArray.sort((a, b) => b - a);
+  print("solution 1 is: " + solutionArray[0]);
+  print("solution 2 is: " + (solutionArray[0] + solutionArray[1] + solutionArray[2]));
 }
