@@ -5,7 +5,7 @@ export default function main(): void {
   let count = 0;
   let solutionArray: number[] = [];
   input.forEach((element) => {
-    if (element !== "") {
+    if (element !== undefined) {
       count += parseInt(element);
     } else {
       solutionArray.push(count);
