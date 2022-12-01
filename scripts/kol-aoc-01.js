@@ -37,7 +37,7 @@ var import_kolmafia = require("kolmafia");
 function main() {
   var input = (0, import_kolmafia.fileToBuffer)("input.txt").trim().split(/\n/g), count = 0, solutionArray = [];
   input.forEach(function(element) {
-    element !== "" ? count += parseInt(element) : (solutionArray.push(count), count = 0);
+    element !== void 0 ? count += parseInt(element) : (solutionArray.push(count), count = 0);
   });
   var solution = solutionArray.sort(function(a, b) {
     return b - a;
